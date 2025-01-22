@@ -2,8 +2,11 @@ package com.example.plantswap.controllers;
 
 import com.example.plantswap.models.Plant;
 import com.example.plantswap.repositories.PlantRepository;
+//import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -16,21 +19,24 @@ public class PlantController {
         this.plantRepository = plantRepository;
     }
 
-    @GetMapping
-    public List<Plant> getAllPlants() {
-        return plantRepository.findAll();
+    @PostMapping
+    public ResponseEntity<Plant> createPlant(@RequestBody Plant plant) {
+        Plant newPlant = plantRepository.save(plant);
+        return ResponseEntity.ok(newPlant);
     }
 
-    @PostMapping
-    public Plant createPlant(@RequestBody Plant plant) {
-        return plantRepository.save(plant);
+    @GetMapping
+    public ResponseEntity<List<Plant>> getAllPlants() {
+        List<Plant> plants = plantRepository.findAll();
+        return ResponseEntity.ok(plants);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Plant> getSinglePlant(@PathVariable String id) {
-        return plantRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Plant plant = plantRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,"Plant not found"));
+        return ResponseEntity.ok(plant);
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.plantswap.models;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,6 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
     @Id
     private String id;
+
+    @NotNull(message = "User name can't be null")
+    @NotEmpty(message = "User name can't be empty")
     private String username;
 
     public User() {
@@ -20,11 +25,11 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
+    public @NotNull(message = "User name can't be null") @NotEmpty(message = "User name can't be empty") String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(@NotNull(message = "User name can't be null") @NotEmpty(message = "User name can't be empty") String username) {
         this.username = username;
     }
 }
