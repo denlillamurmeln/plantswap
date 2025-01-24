@@ -2,7 +2,6 @@ package com.example.plantswap.controllers;
 
 import com.example.plantswap.models.Plant;
 import com.example.plantswap.repositories.PlantRepository;
-import com.example.plantswap.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,11 @@ import java.util.List;
 @RequestMapping("/api/plants")
 public class PlantController {
     private final PlantRepository plantRepository;
-    private final UserRepository userRepository;
+    //private final UserRepository userRepository;
 
-    public PlantController(PlantRepository plantRepository, UserRepository userRepository) {
+    public PlantController(PlantRepository plantRepository/*, UserRepository userRepository*/) {
         this.plantRepository = plantRepository;
-        this.userRepository = userRepository;
+        //this.userRepository = userRepository;
     }
 
     @PostMapping
@@ -109,7 +108,7 @@ public class PlantController {
         return ResponseEntity.ok(updatedPlant);
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlant(@PathVariable String id) {
         if (!plantRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found");

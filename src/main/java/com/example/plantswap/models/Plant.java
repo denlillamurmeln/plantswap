@@ -5,8 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Document(collection = "plants")
 public class Plant {
     @Id
@@ -61,7 +59,7 @@ public class Plant {
 
     @NotNull(message = "Name can't be null")
     @NotNull(message = "Pictures can't be empty")
-    private List<String> pictures;
+    private /*List<*/String pictures;
 
     public Plant() {
     }
@@ -155,11 +153,11 @@ public class Plant {
         this.status = status;
     }
 
-    public @NotNull(message = "Name can't be null") @NotNull(message = "Pictures can't be empty") List<String> getPictures() {
+    public @NotNull(message = "Name can't be null") @NotNull(message = "Pictures can't be empty") String getPictures() {
         return pictures;
     }
 
-    public void setPictures(@NotNull(message = "Name can't be null") @NotNull(message = "Pictures can't be empty") List<String> pictures) {
+    public void setPictures(@NotNull(message = "Name can't be null") @NotNull(message = "Pictures can't be empty") String pictures) {
         this.pictures = pictures;
     }
 
