@@ -13,11 +13,12 @@ public class Plant {
     private String id;
 
     @DBRef
+    private User user;
+
     @NotNull(message = "Name can't be null")
     @NotEmpty(message = "Name can't be empty")
     private String name;
 
-    @DBRef
     @NotNull(message = "Latin name can't be null")
     @NotEmpty(message = "Latin name can't be empty")
     private String latinName;
@@ -160,5 +161,13 @@ public class Plant {
 
     public void setPictures(@NotNull(message = "Name can't be null") @NotNull(message = "Pictures can't be empty") List<String> pictures) {
         this.pictures = pictures;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

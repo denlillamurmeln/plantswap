@@ -52,6 +52,59 @@ public class PlantController {
         Plant existingPlant = plantRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found."));
 
+//        if (plant.getName() != null) {
+//            existingPlant.setName(plant.getName());
+//        }
+//
+//        if (plant.getLatinName() != null) {
+//            existingPlant.setLatinName(plant.getLatinName());
+//        }
+//
+//        if (plant.getSize() != null) {
+//            existingPlant.setSize(plant.getSize());
+//        }
+
+//        if (plant.getType() != null) {
+//            existingPlant.setType(plant.getType());
+//        }
+
+//        if (plant.getLight() != null) {
+//            existingPlant.setLight(plant.getLight());
+//        }
+
+//        if (plant.getWater() != null) {
+//            existingPlant.setWater(plant.getWater());
+//        }
+
+//        if (plant.getPrice() != null) {
+//            existingPlant.setPrice(plant.getPrice());
+//        }
+
+//        if (plant.getBuyExchange() != null) {
+//            existingPlant.setBuyExchange(plant.getBuyExchange());
+//        }
+
+//        if (plant.getDifficultyLevel() != null) {
+//            existingPlant.setDifficultyLevel(plant.getDifficultyLevel());
+//        }
+
+//        if (plant.getStatus() != null) {
+//            existingPlant.setStatus(plant.getStatus());
+//        }
+
+//        if (plant.getPictures() != null) {
+//            existingPlant.setPictures(plant.getPictures());
+//        }
+//
+//        if (plant.getUser() != null) {
+//            User user = userRepository.findById(plant.getUser().getId())
+//                    .orElseThrow(() -> new ResponseStatusException(
+//                            HttpStatus.BAD_REQUEST, "User not found"
+//                    ));
+//            existingPlant.setUser(user);
+//        }
+
+
         Plant updatedPlant = plantRepository.save(existingPlant);
         return ResponseEntity.ok(updatedPlant);
     }
