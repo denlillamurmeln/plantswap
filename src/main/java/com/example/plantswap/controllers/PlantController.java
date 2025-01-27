@@ -1,7 +1,9 @@
 package com.example.plantswap.controllers;
 
 import com.example.plantswap.models.Plant;
+import com.example.plantswap.models.User;
 import com.example.plantswap.repositories.PlantRepository;
+import com.example.plantswap.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +15,11 @@ import java.util.List;
 @RequestMapping("/api/plants")
 public class PlantController {
     private final PlantRepository plantRepository;
-    //private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public PlantController(PlantRepository plantRepository/*, UserRepository userRepository*/) {
+    public PlantController(PlantRepository plantRepository, UserRepository userRepository) {
         this.plantRepository = plantRepository;
-        //this.userRepository = userRepository;
+        this.userRepository = userRepository;
     }
 
     @PostMapping
@@ -51,58 +53,57 @@ public class PlantController {
         Plant existingPlant = plantRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found."));
 
-//        if (plant.getName() != null) {
-//            existingPlant.setName(plant.getName());
-//        }
-//
-//        if (plant.getLatinName() != null) {
-//            existingPlant.setLatinName(plant.getLatinName());
-//        }
-//
-//        if (plant.getSize() != null) {
-//            existingPlant.setSize(plant.getSize());
-//        }
+        if (plant.getName() != null) {
+            existingPlant.setName(plant.getName());
+        }
 
-//        if (plant.getType() != null) {
-//            existingPlant.setType(plant.getType());
-//        }
+        if (plant.getLatinName() != null) {
+            existingPlant.setLatinName(plant.getLatinName());
+        }
 
-//        if (plant.getLight() != null) {
-//            existingPlant.setLight(plant.getLight());
-//        }
+        if (plant.getSize() != null) {
+            existingPlant.setSize(plant.getSize());
+        }
 
-//        if (plant.getWater() != null) {
-//            existingPlant.setWater(plant.getWater());
-//        }
+        if (plant.getType() != null) {
+            existingPlant.setType(plant.getType());
+        }
 
-//        if (plant.getPrice() != null) {
-//            existingPlant.setPrice(plant.getPrice());
-//        }
+        if (plant.getLight() != null) {
+            existingPlant.setLight(plant.getLight());
+        }
 
-//        if (plant.getBuyExchange() != null) {
-//            existingPlant.setBuyExchange(plant.getBuyExchange());
-//        }
+        if (plant.getWater() != null) {
+            existingPlant.setWater(plant.getWater());
+        }
 
-//        if (plant.getDifficultyLevel() != null) {
-//            existingPlant.setDifficultyLevel(plant.getDifficultyLevel());
-//        }
+        if (plant.getPrice() != null) {
+            existingPlant.setPrice(plant.getPrice());
+        }
 
-//        if (plant.getStatus() != null) {
-//            existingPlant.setStatus(plant.getStatus());
-//        }
+        if (plant.getBuyExchange() != null) {
+            existingPlant.setBuyExchange(plant.getBuyExchange());
+        }
 
-//        if (plant.getPictures() != null) {
-//            existingPlant.setPictures(plant.getPictures());
-//        }
-//
-//        if (plant.getUser() != null) {
-//            User user = userRepository.findById(plant.getUser().getId())
-//                    .orElseThrow(() -> new ResponseStatusException(
-//                            HttpStatus.BAD_REQUEST, "User not found"
-//                    ));
-//            existingPlant.setUser(user);
-//        }
+        if (plant.getDifficultyLevel() != null) {
+            existingPlant.setDifficultyLevel(plant.getDifficultyLevel());
+        }
 
+        if (plant.getStatus() != null) {
+            existingPlant.setStatus(plant.getStatus());
+        }
+
+        if (plant.getPictures() != null) {
+            existingPlant.setPictures(plant.getPictures());
+        }
+
+        if (plant.getUser() != null) {
+            User user = userRepository.findById(plant.getUser().getId())
+                    .orElseThrow(() -> new ResponseStatusException(
+                            HttpStatus.BAD_REQUEST, "User not found"
+                    ));
+            existingPlant.setUser(user);
+        }
 
         Plant updatedPlant = plantRepository.save(existingPlant);
         return ResponseEntity.ok(updatedPlant);
@@ -122,5 +123,7 @@ public class PlantController {
         List<Plant> plants = plantRepository.findByStatus(available);
         return ResponseEntity.ok(plants);
     }
+
+
 
 }

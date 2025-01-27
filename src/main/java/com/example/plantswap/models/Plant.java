@@ -45,7 +45,7 @@ public class Plant {
 
     @NotNull(message = "Can't be null")
     @NotEmpty(message = "This can't be empty")
-    @Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange")
+    //@Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange")
     private String buyExchange;
 
     @NotNull(message = "Can't be null")
@@ -53,9 +53,8 @@ public class Plant {
     @Max(value = 5, message = "The difficulty level can't be above 5")
     private String difficultyLevel;
 
-//    @NotNull(message = "Status can't be null")
-//    @NotNull(message = "Status can't be empty")
-//    @Pattern(regexp = "Available|Reserved|Not available", message = "The alternatives can only be Available, reserved or not available")
+    @NotNull(message = "Status can't be null")
+    @NotNull(message = "Status can't be empty")
     private String status;
 
     @NotNull(message = "Name can't be null")
@@ -130,11 +129,11 @@ public class Plant {
         this.price = price;
     }
 
-    public @NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") @Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange") String getBuyExchange() {
+    public @NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String getBuyExchange() {
         return buyExchange;
     }
 
-    public void setBuyExchange(@NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") @Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange") String buyExchange) {
+    public void setBuyExchange(@NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String buyExchange) {
         this.buyExchange = buyExchange;
     }
 
@@ -146,11 +145,11 @@ public class Plant {
         this.difficultyLevel = difficultyLevel;
     }
 
-    public /*@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty")*/ String getStatus() {
+    public @NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty") String getStatus() {
         return status;
     }
 
-    public void setStatus(/*@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty")*/ String status) {
+    public void setStatus(@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty") String status) {
         this.status = status;
     }
 
@@ -169,4 +168,5 @@ public class Plant {
     public void setUser(User user) {
         this.user = user;
     }
+
 }
