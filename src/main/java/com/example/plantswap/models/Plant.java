@@ -55,6 +55,7 @@ public class Plant {
 
     @NotNull(message = "Status can't be null")
     @NotNull(message = "Status can't be empty")
+    @Pattern(regexp = "Available|Reserved|Not available", message = "The alternatives can only be Available, reserved or not available")
     private String status;
 
     @NotNull(message = "Name can't be null")
