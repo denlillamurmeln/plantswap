@@ -117,10 +117,10 @@ public class PlantController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/status/{Available}")
-    public ResponseEntity<Plant> getPlantByAvailable(@PathVariable String Available) {
-        List<Plant> plants = plantRepository.findByStatus(Available);
-        return (ResponseEntity<Plant>) plants;
+    @GetMapping("/status/{available}")
+    public ResponseEntity<List<Plant>> getPlantsByAvailable(@PathVariable String available) {
+        List<Plant> plants = plantRepository.findByStatus(available);
+        return ResponseEntity.ok(plants);
     }
 
 }

@@ -53,9 +53,9 @@ public class Plant {
     @Max(value = 5, message = "The difficulty level can't be above 5")
     private String difficultyLevel;
 
-    @NotNull(message = "Status can't be null")
-    @NotNull(message = "Status can't be empty")
-    @Pattern(regexp = "Available|Reserved|Not available", message = "The alternatives can only be Available, reserved or not available")
+//    @NotNull(message = "Status can't be null")
+//    @NotNull(message = "Status can't be empty")
+//    @Pattern(regexp = "Available|Reserved|Not available", message = "The alternatives can only be Available, reserved or not available")
     private String status;
 
     @NotNull(message = "Name can't be null")
@@ -146,11 +146,11 @@ public class Plant {
         this.difficultyLevel = difficultyLevel;
     }
 
-    public @NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty") String getStatus() {
+    public /*@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty")*/ String getStatus() {
         return status;
     }
 
-    public void setStatus(@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty") String status) {
+    public void setStatus(/*@NotNull(message = "Status can't be null") @NotNull(message = "Status can't be empty")*/ String status) {
         this.status = status;
     }
 
