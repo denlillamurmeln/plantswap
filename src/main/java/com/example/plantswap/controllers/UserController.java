@@ -62,7 +62,7 @@ public class UserController {
 
     @GetMapping("/{id}/plants")
     public ResponseEntity<List<Plant>> getUserPlants(@PathVariable String id) {
-        List<Plant> plants = plantRepository.findByUser(id);
+        List<Plant> plants = plantRepository.findByUserId(id);
         return ResponseEntity.ok(plants);
     }
 

@@ -9,10 +9,12 @@ public class Transaction {
     @Id
     private String id;
 
+    private String buyExchange;
+
 //    @PositiveOrZero(message = "Price can't be a negative number")
 //    @Positive(message = "Price must be greater than 0")
 //    private Integer add;
-//
+
     @DBRef
     private User user;
 
@@ -53,5 +55,13 @@ public class Transaction {
 
     public void setPlant(Plant plant) {
         this.plant = plant;
+    }
+
+    public String getBuyExchange() {
+        return buyExchange;
+    }
+
+    public void setBuyExchange(String buyExchange) {
+        this.buyExchange = buyExchange;
     }
 }

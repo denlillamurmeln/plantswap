@@ -27,20 +27,13 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction/*, String userId*/, Plant plant, User user) {
-        //List<User> user = userRepository.findByUserId(userId);
-
-        //plant = plantRepository.findById(plant.getId()).orElse(null);
-
-
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction, Plant plant, User user) {
         List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
 
-        if (userAds.size() >= 2){
+        //tog hjälp av chatgpt för att lösa denna if-satsen
+        if (userAds.size() >= 10){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
         }
-
-//        transaction.setPlant(plant);
-//        transaction.setUser((User) user);
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
@@ -63,6 +56,11 @@ public class TransactionController {
     public ResponseEntity<Transaction> updateTransaction(@PathVariable String id, @RequestBody Transaction transaction) {
         Transaction existingTransaction = transactionRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Transaction not found"));
+
+        if (transaction.getBuyExchange() != null) {
+            existingTransaction.setBuyExchange(transaction.getBuyExchange());
+        }
+
         Transaction updatedTransaction = transactionRepository.save(existingTransaction);
         return ResponseEntity.ok(updatedTransaction);
     }
@@ -77,6 +75,10 @@ public class TransactionController {
         return ResponseEntity.noContent().build();
     }
 
-
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<Transaction>> getUserTransaction(@PathVariable String id) {
+        List<Transaction> transactions = transactionRepository.findByUserId(id);
+        return ResponseEntity.ok(transactions);
+    }
 
 }
