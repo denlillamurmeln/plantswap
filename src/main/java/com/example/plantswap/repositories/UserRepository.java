@@ -4,5 +4,5 @@ import com.example.plantswap.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {
-    //List<User> findByUser(String id);
+    //List<User> findByUserId(String userId);
 }

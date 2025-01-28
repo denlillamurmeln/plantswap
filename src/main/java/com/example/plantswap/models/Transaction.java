@@ -1,7 +1,5 @@
 package com.example.plantswap.models;
 
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,10 +9,10 @@ public class Transaction {
     @Id
     private String id;
 
-    @PositiveOrZero(message = "Price can't be a negative number")
-    @Positive(message = "Price must be greater than 0")
-    private Double totalPrice;
-
+//    @PositiveOrZero(message = "Price can't be a negative number")
+//    @Positive(message = "Price must be greater than 0")
+//    private Integer add;
+//
     @DBRef
     private User user;
 
@@ -24,6 +22,7 @@ public class Transaction {
     public Transaction() {
     }
 
+
     public String getId() {
         return id;
     }
@@ -32,14 +31,14 @@ public class Transaction {
         this.id = id;
     }
 
-    public @PositiveOrZero(message = "Price can't be a negative number") @Positive(message = "Price must be greater than 0") Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(@PositiveOrZero(message = "Price can't be a negative number") @Positive(message = "Price must be greater than 0") Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
+//    public Integer getAdd() {
+//        return add;
+//    }
+//
+//    public void setAdd(Integer add) {
+//        this.add = add;
+//    }
+//
     public User getUser() {
         return user;
     }

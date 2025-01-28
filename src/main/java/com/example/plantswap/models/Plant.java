@@ -23,7 +23,6 @@ public class Plant {
 
     @NotNull(message = "Size can't be null")
     @NotEmpty(message = "Size can't be empty")
-    @Pattern(regexp = "S|M|H", message = "The alternatives can only be S (small), M (medium) or H (hard)")
     private String size;
 
     @NotNull(message = "Type can't be null")
@@ -89,11 +88,11 @@ public class Plant {
         this.latinName = latinName;
     }
 
-    public @NotNull(message = "Size can't be null") @NotEmpty(message = "Size can't be empty") @Pattern(regexp = "S|M|H", message = "The alternatives can only be S (small), M (medium) or H (hard)") String getSize() {
+    public @NotNull(message = "Size can't be null") @NotEmpty(message = "Size can't be empty") String getSize() {
         return size;
     }
 
-    public void setSize(@NotNull(message = "Size can't be null") @NotEmpty(message = "Size can't be empty") @Pattern(regexp = "S|M|H", message = "The alternatives can only be S (small), M (medium) or H (hard)") String size) {
+    public void setSize(@NotNull(message = "Size can't be null") @NotEmpty(message = "Size can't be empty") String size) {
         this.size = size;
     }
 

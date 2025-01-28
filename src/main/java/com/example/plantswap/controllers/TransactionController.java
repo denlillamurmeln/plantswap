@@ -1,7 +1,11 @@
 package com.example.plantswap.controllers;
 
+import com.example.plantswap.models.Plant;
 import com.example.plantswap.models.Transaction;
+import com.example.plantswap.models.User;
+import com.example.plantswap.repositories.PlantRepository;
 import com.example.plantswap.repositories.TransactionRepository;
+import com.example.plantswap.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +17,28 @@ import java.util.List;
 @RequestMapping("/api/transactions")
 public class TransactionController {
     private final TransactionRepository transactionRepository;
+    private final UserRepository userRepository;
+    private final PlantRepository plantRepository;
 
-    public TransactionController(TransactionRepository transactionRepository) {
+    public TransactionController(UserRepository userRepository, TransactionRepository transactionRepository, PlantRepository plantRepository) {
+        this.userRepository = userRepository;
         this.transactionRepository = transactionRepository;
+        this.plantRepository = plantRepository;
     }
 
     @PostMapping
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction, Plant plant, User user) {
+        //User userId = userRepository.findById(id);
+        List<Transaction> userAds = transactionRepository.findByPlantId(plant.getId());
+
+//        if (userAds.size() >= 1){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
+//        }
+
+//        transaction.setPlant(plant);
+//        transaction.setUser(user);
+
+
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
     }
@@ -54,5 +73,7 @@ public class TransactionController {
         transactionRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+
 
 }
