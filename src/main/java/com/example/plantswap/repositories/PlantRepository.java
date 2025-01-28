@@ -9,4 +9,6 @@ public interface PlantRepository extends MongoRepository<Plant, String> {
     List<Plant> findByStatus(String status);
 
     List<Plant> findByUser(String id);
+
+    //List<Plant> findByPlantId(String plantId);
 }

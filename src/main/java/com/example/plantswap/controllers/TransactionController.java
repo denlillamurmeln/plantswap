@@ -27,17 +27,20 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction, Plant plant, User user) {
-        //User userId = userRepository.findById(id);
-        List<Transaction> userAds = transactionRepository.findByPlantId(plant.getId());
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction/*, String userId*/, Plant plant, User user) {
+        //List<User> user = userRepository.findByUserId(userId);
 
-//        if (userAds.size() >= 1){
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
-//        }
+        //plant = plantRepository.findById(plant.getId()).orElse(null);
+
+
+        List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
+
+        if (userAds.size() >= 2){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
+        }
 
 //        transaction.setPlant(plant);
-//        transaction.setUser(user);
-
+//        transaction.setUser((User) user);
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
