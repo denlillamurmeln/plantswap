@@ -35,9 +35,9 @@ public class TransactionController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
 
 
-        List<Transaction> compareUserAndPlant = transactionRepository.findByUserIdAndPlantId(user.getId(), plant.getId());
+        //List<Transaction> compareUserAndPlant = transactionRepository.findByUserIdAndPlantId(user.getId(), plant.getId());
 
-        if (compareUserAndPlant.isEmpty()) {
+        if (!plant.getUser().getId().equals(user.getId())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only create an ad for plants you own");
         }
 
@@ -53,6 +53,8 @@ public class TransactionController {
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
+
+
     }
 
     @GetMapping
