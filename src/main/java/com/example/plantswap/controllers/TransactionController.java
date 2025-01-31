@@ -27,13 +27,24 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction, Plant plant, User user) {
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+        User user = userRepository.findById(transaction.getUser().getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
         List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
 
         //tog hjälp av chatgpt för att lösa denna if-satsen
         if (userAds.size() >= 10){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
         }
+
+        Plant plant = plantRepository.findById(transaction.getPlant().getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
+
+        transactionRepository.findByPlantId(plant.getId());
+
+        transaction.setUser(user);
+        transaction.setPlant(plant);
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
@@ -77,7 +88,15 @@ public class TransactionController {
 
     @GetMapping("/user/{id}")
     public ResponseEntity<List<Transaction>> getUserTransaction(@PathVariable String id) {
-        List<Transaction> transactions = transactionRepository.findByUserId(id);
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+
+        List<Transaction> transactions = transactionRepository.findByUserId(user.getId());
+
+        if (transactions.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No transactions found for this user");
+        }
+
         return ResponseEntity.ok(transactions);
     }
 

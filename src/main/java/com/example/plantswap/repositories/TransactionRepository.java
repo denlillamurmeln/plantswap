@@ -7,4 +7,11 @@ import java.util.List;
 
 public interface TransactionRepository extends MongoRepository<Transaction, String> {
     List<Transaction> findByUserId(String id);
+
+    List<Transaction> findByPlantId(String id);
+
+
+//    List<Transaction> findByUser(User user);
+//
+//    List<Transaction> getAllAdsForUser(User user);
 }
