@@ -31,17 +31,22 @@ public class TransactionController {
         User user = userRepository.findById(transaction.getUser().getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
+        Plant plant = plantRepository.findById(transaction.getPlant().getId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
+
+
+        List<Transaction> compareUserAndPlant = transactionRepository.findByUserIdAndPlantId(user.getId(), plant.getId());
+
+        if (compareUserAndPlant.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only create an ad for plants you own");
+        }
+
         List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
 
         //tog hjälp av chatgpt för att lösa denna if-satsen
         if (userAds.size() >= 10){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
         }
-
-        Plant plant = plantRepository.findById(transaction.getPlant().getId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
-
-        transactionRepository.findByPlantId(plant.getId());
 
         transaction.setUser(user);
         transaction.setPlant(plant);
