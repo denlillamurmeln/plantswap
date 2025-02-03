@@ -82,9 +82,9 @@ public class PlantController {
             existingPlant.setPrice(plant.getPrice());
         }
 
-//        if (plant.getBuyExchange() != null) {
-//            existingPlant.setBuyExchange(plant.getBuyExchange());
-//        }
+        if (plant.getBuyExchange() != null) {
+            existingPlant.setBuyExchange(plant.getBuyExchange());
+        }
 
         if (plant.getDifficultyLevel() != null) {
             existingPlant.setDifficultyLevel(plant.getDifficultyLevel());

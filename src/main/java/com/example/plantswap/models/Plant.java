@@ -42,10 +42,10 @@ public class Plant {
     @Max(value = 1000, message = "The price can't be above 1000 SEK")
     private Double price;
 
-//    @NotNull(message = "Can't be null")
-//    @NotEmpty(message = "This can't be empty")
+    @NotNull(message = "Can't be null")
+    @NotEmpty(message = "This can't be empty")
 //    //@Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange")
-//    private String buyExchange;
+    private String buyExchange;
 
     @NotNull(message = "Can't be null")
     @Min(value = 0, message = "The difficulty level can't be below 0")
@@ -128,13 +128,13 @@ public class Plant {
         this.price = price;
     }
 
-//    public @NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String getBuyExchange() {
-//        return buyExchange;
-//    }
-//
-//    public void setBuyExchange(@NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String buyExchange) {
-//        this.buyExchange = buyExchange;
-//    }
+    public @NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String getBuyExchange() {
+        return buyExchange;
+    }
+
+    public void setBuyExchange(@NotNull(message = "Can't be null") @NotEmpty(message = "This can't be empty") String buyExchange) {
+        this.buyExchange = buyExchange;
+    }
 
     public @NotNull(message = "Can't be null") @Min(value = 0, message = "The difficulty level can't be below 0") @Max(value = 5, message = "The difficulty level can't be above 5") String getDifficultyLevel() {
         return difficultyLevel;
