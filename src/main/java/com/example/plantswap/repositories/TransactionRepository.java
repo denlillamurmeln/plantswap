@@ -8,6 +8,8 @@ import java.util.List;
 public interface TransactionRepository extends MongoRepository<Transaction, String> {
     List<Transaction> findByUserId(String id);
 
+    List<Transaction> findByBuyExchange(String buyExchange);
+
     //List<Transaction> findByUserIdAndPlantId(String userId, String plantId);
 
 

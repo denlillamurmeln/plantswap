@@ -58,7 +58,7 @@ public class Plant {
 
     @NotNull(message = "Name can't be null")
     @NotNull(message = "Pictures can't be empty")
-    private /*List<*/String pictures;
+    private String pictures;
 
     public Plant() {
     }

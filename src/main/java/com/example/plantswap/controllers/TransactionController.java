@@ -41,20 +41,23 @@ public class TransactionController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only create an ad for plants you own");
         }
 
+        if (!(transactionRepository.findByBuyExchange("exchange").equals(plantRepository.findByStatus("available")))) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No plants are available for exchange");
+
+        }
+
         List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
 
-        //tog hjälp av chatgpt för att lösa denna if-satsen
         if (userAds.size() >= 10){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
         }
 
         transaction.setUser(user);
         transaction.setPlant(plant);
+        //transaction.setBuyExchange(transaction.getBuyExchange());
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
-
-
     }
 
     @GetMapping
@@ -106,5 +109,8 @@ public class TransactionController {
 
         return ResponseEntity.ok(transactions);
     }
+
+    //check för byte av plant
+
 
 }
