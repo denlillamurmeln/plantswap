@@ -1,0 +1,418 @@
+{
+  "plants": [
+    {
+    "_id": {
+      "$oid": "67a1e0b2593f74226f40c358"
+    },
+    "user": {
+      "$ref": "users",
+      "$id": {
+        "$oid": "679d0cb7574fc713dfbab794"
+      }
+    },
+    "name": "Peace Lily",
+    "latinName": "Spathiphyllum",
+    "size": "40 cm",
+    "type": "Plant",
+    "light": "Low to bright indirect light",
+    "water": "Moderate",
+    "price": 22.99,
+    "buyExchange": "exchanged",
+    "difficultyLevel": "2",
+    "status": "sold",
+    "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/4d17a0cfdf094ffb92296f2ae1708ac9.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+    "_class": "com.example.plantswap.models.Plant"
+  },
+    {
+      "_id": {
+        "$oid": "67a1e5a786b5b72143e92e43"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "name": "Rundkalatea",
+      "latinName": "Goeppertia orbifolia",
+      "size": "35 cm",
+      "type": "Plant",
+      "light": "Half shade to shade",
+      "water": "Much",
+      "price": 124.5,
+      "buyExchange": "bought",
+      "difficultyLevel": "5",
+      "status": "sold",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/176064/c44edee0acb12a45107cc3490113e8a7.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e60386b5b72143e92e44"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "name": "Spider Plant",
+      "latinName": "Chlorophytum comosum",
+      "size": "30 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 14.99,
+      "buyExchange": "buy",
+      "difficultyLevel": "1",
+      "status": "reserved",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/fbd1ac8a60a947bb90684b1d7e960771.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e62a86b5b72143e92e45"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "name": "ZZ Plant",
+      "latinName": "Zamioculcas zamiifolia",
+      "size": "60 cm",
+      "type": "Plant",
+      "light": "Low to bright indirect light",
+      "water": "Low",
+      "price": 28.99,
+      "buyExchange": "exchanged",
+      "difficultyLevel": "1",
+      "status": "not available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/c604699c6f974f2b9e50cdd6161a28b9.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e66286b5b72143e92e46"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "6793c49fe2f9417a87c67559"
+        }
+      },
+      "name": "Fiddle Leaf Fig",
+      "latinName": "Ficus lyrata",
+      "size": "120 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 79.99,
+      "buyExchange": "bought",
+      "difficultyLevel": "4",
+      "status": "sold",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/a60e633ba3b54ab3896fa8759fd5d5ab.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e67286b5b72143e92e47"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "6793c49fe2f9417a87c67559"
+        }
+      },
+      "name": "Cactus",
+      "latinName": "Cactaceae",
+      "size": "25 cm",
+      "type": "Succulent",
+      "light": "Bright direct light",
+      "water": "Low",
+      "price": 9.99,
+      "buyExchange": "exchanged",
+      "difficultyLevel": "2",
+      "status": "not available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/37f689d32c5a49c7816a4e7ac54e8f7d.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e67d86b5b72143e92e48"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "6793c49fe2f9417a87c67559"
+        }
+      },
+      "name": "Rubber Plant",
+      "latinName": "Ficus elastica",
+      "size": "70 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 35,
+      "buyExchange": "buy",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/5fd92cb9c4204b92a19a1188ec470f8f.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e68a86b5b72143e92e49"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "6793c49fe2f9417a87c67559"
+        }
+      },
+      "name": "English Ivy",
+      "latinName": "Hedera helix",
+      "size": "60 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 12.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/8a4157c5767542fa8cc3d9cf7485b05a.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6c086b5b72143e92e4a"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Pothos",
+      "latinName": "Epipremnum aureum",
+      "size": "30 cm",
+      "type": "Plant",
+      "light": "Low to bright indirect light",
+      "water": "Moderate",
+      "price": 13.99,
+      "buyExchange": "buy",
+      "difficultyLevel": "2",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/a0fe23a9a87b44bda95b0847df99f072.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6ca86b5b72143e92e4b"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Bird of Paradise",
+      "latinName": "Strelitzia reginae",
+      "size": "90 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 54.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "4",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/0a28b1a6278d4a3d8b81f5adf06a0635.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6d586b5b72143e92e4c"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Philodendron",
+      "latinName": "Philodendron scandens",
+      "size": "40 cm",
+      "type": "Plant",
+      "light": "Low to bright indirect light",
+      "water": "Moderate",
+      "price": 24.99,
+      "buyExchange": "buy",
+      "difficultyLevel": "2",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/fcd59a564d6a4b5d8c78ac6596606a24.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6e286b5b72143e92e4d"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Monstera",
+      "latinName": "Monstera deliciosa",
+      "size": "100 cm",
+      "type": "Plant",
+      "light": "Bright indirect light",
+      "water": "Moderate",
+      "price": 49.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/1b2f926d195f49ad8e7b23d106ec5b36.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6ed86b5b72143e92e4e"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Lavender",
+      "latinName": "Lavandula angustifolia",
+      "size": "30 cm",
+      "type": "Herb",
+      "light": "Full sun",
+      "water": "Low",
+      "price": 12.5,
+      "buyExchange": "buy",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/44b4733fd74248d39c7e56cd5293c90e.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e6f786b5b72143e92e4f"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Mint",
+      "latinName": "Mentha",
+      "size": "25 cm",
+      "type": "Herb",
+      "light": "Full sun to partial shade",
+      "water": "Much",
+      "price": 6.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "2",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/fe0e8ec24b3048b2bb1585f028e65b42.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e70086b5b72143e92e50"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Lemon Balm",
+      "latinName": "Melissa officinalis",
+      "size": "35 cm",
+      "type": "Herb",
+      "light": "Full sun to partial shade",
+      "water": "Much",
+      "price": 7.99,
+      "buyExchange": "buy",
+      "difficultyLevel": "2",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/7/76235/582264e0f7e64c6384b43ad5b1cb3178.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e70a86b5b72143e92e51"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Chili Pepper",
+      "latinName": "Capsicum annuum",
+      "size": "50 cm",
+      "type": "Vegetable",
+      "light": "Full sun",
+      "water": "Moderate",
+      "price": 8.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/c7c560ad9c8e428484cd5ff5de37ecb3.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e71386b5b72143e92e52"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Tomato",
+      "latinName": "Solanum lycopersicum",
+      "size": "60 cm",
+      "type": "Vegetable",
+      "light": "Full sun",
+      "water": "Much",
+      "price": 5.99,
+      "buyExchange": "buy",
+      "difficultyLevel": "3",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/3cdb1f322ee84816b5eae10a397fa107.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    },
+    {
+      "_id": {
+        "$oid": "67a1e71e86b5b72143e92e53"
+      },
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "name": "Basil",
+      "latinName": "Ocimum basilicum",
+      "size": "20 cm",
+      "type": "Herb",
+      "light": "Full sun",
+      "water": "Much",
+      "price": 4.99,
+      "buyExchange": "exchange",
+      "difficultyLevel": "2",
+      "status": "available",
+      "pictures": "https://www.blomsterlandet.se/globalassets/catalog-images/5/52347/1183c35c32b54bbfa8fa3f0c745f3b92.jpg?format=webp&quality=85&width=1200&height=1200&rmode=pad&rcolor=FFFFFFFF",
+      "_class": "com.example.plantswap.models.Plant"
+    }
+  ]
+}

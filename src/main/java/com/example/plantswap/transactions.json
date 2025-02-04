@@ -1,0 +1,117 @@
+{
+  "transactions": [
+    {
+      "_id": {
+        "$oid": "67a1ec9a13d71b706162d0f1"
+      },
+      "buyExchange": "exchange",
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "plant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e0b2593f74226f40c358"
+        }
+      },
+      "_class": "com.example.plantswap.models.Transaction"
+    },
+    {
+      "_id": {
+        "$oid": "67a1f1b254869c1a74ec4dae"
+      },
+      "buyExchange": "buy",
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "plant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e66286b5b72143e92e46"
+        }
+      },
+      "_class": "com.example.plantswap.models.Transaction"
+    },
+    {
+      "_id": {
+        "$oid": "67a1f33754869c1a74ec4db1"
+      },
+      "buyExchange": "exchange",
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "plant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e67286b5b72143e92e47"
+        }
+      },
+      "_class": "com.example.plantswap.models.Transaction"
+    },
+    {
+      "_id": {
+        "$oid": "67a22769b7a7f20410786350"
+      },
+      "buyExchange": "buy",
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "plant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e5a786b5b72143e92e43"
+        }
+      },
+      "buyerUser": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679d0cb7574fc713dfbab794"
+        }
+      },
+      "_class": "com.example.plantswap.models.Transaction"
+    },
+    {
+      "_id": {
+        "$oid": "67a22801b7a7f20410786351"
+      },
+      "buyExchange": "exchange",
+      "user": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "679288b8cdc5b65823651644"
+        }
+      },
+      "plant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e62a86b5b72143e92e45"
+        }
+      },
+      "buyerUser": {
+        "$ref": "users",
+        "$id": {
+          "$oid": "6793c49fe2f9417a87c67559"
+        }
+      },
+      "buyerPlant": {
+        "$ref": "plants",
+        "$id": {
+          "$oid": "67a1e68a86b5b72143e92e49"
+        }
+      },
+      "_class": "com.example.plantswap.models.Transaction"
+    }
+  ]
+}

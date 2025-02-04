@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "_id": {
+        "$oid": "679288b8cdc5b65823651644"
+      },
+      "username": "Emil",
+      "_class": "com.example.plantswap.models.User"
+    },
+    {
+      "_id": {
+        "$oid": "6793c49fe2f9417a87c67559"
+      },
+      "username": "Sven",
+      "_class": "com.example.plantswap.models.User"
+    },
+    {
+      "_id": {
+        "$oid": "679d0cb7574fc713dfbab794"
+      },
+      "username": "Urban",
+      "_class": "com.example.plantswap.models.User"
+    }
+  ]
+}
