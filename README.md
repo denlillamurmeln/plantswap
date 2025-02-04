@@ -11,7 +11,7 @@ Detsamma gäller om ägaren har angett "exchange" i "buyExchange", den andra anv
 # Förbättring och begränsningar
 - Skapa en service till nästa gång. Blev inte så strukturerat så jag tappade ofta bort mig i koden.
 - Göra om vissa saker till enum tex. String exchange = "exchange"; i min transactionController.
-- Förbättra min exchange i transactionController. Missade och tänkte fel, gjorde den på samma sätt som "buy" och missa att man skulle byta sinsemellan. Vill det inte riktigt fungera som jag vill.
+- Förbättra min exchange i transactionController. Missade och tänkte fel, gjorde den på samma sätt som "buy" och missa att man skulle byta sinsemellan. Vill inte riktigt fungera som jag vill.
 
 # E/R-DIAGRAM
 ![img_1.png](img_1.png)
