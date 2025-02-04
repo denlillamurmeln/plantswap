@@ -42,9 +42,9 @@ public class Plant {
     @Max(value = 1000, message = "The price can't be above 1000 SEK")
     private Double price;
 
+    //använder denna för att jämföra emellan plant och den som vill köpa/byta
     @NotNull(message = "Can't be null")
     @NotEmpty(message = "This can't be empty")
-//    //@Pattern(regexp = "Buy|Exchange", message = "The alternatives can only be Buy or exchange")
     private String buyExchange;
 
     @NotNull(message = "Can't be null")

@@ -9,6 +9,7 @@ public class Transaction {
     @Id
     private String id;
 
+    //använder denna för att jämföra emellan plant och den som vill köpa/byta
     private String buyExchange;
 
     @DBRef
@@ -16,6 +17,12 @@ public class Transaction {
 
     @DBRef
     private Plant plant;
+
+    @DBRef
+    private User buyerUser;
+
+    @DBRef
+    private Plant buyerPlant;
 
     public Transaction() {
     }
@@ -50,5 +57,21 @@ public class Transaction {
 
     public void setBuyExchange(String buyExchange) {
         this.buyExchange = buyExchange;
+    }
+
+    public User getBuyerUser() {
+        return buyerUser;
+    }
+
+    public void setBuyerUser(User buyerUser) {
+        this.buyerUser = buyerUser;
+    }
+
+    public Plant getBuyerPlant() {
+        return buyerPlant;
+    }
+
+    public void setBuyerPlant(Plant buyerPlant) {
+        this.buyerPlant = buyerPlant;
     }
 }

@@ -62,6 +62,8 @@ public class UserController {
 
     @GetMapping("/{id}/plants")
     public ResponseEntity<List<Plant>> getUserPlants(@PathVariable String id) {
+
+        //gick genom plantRepository för att få ut mer info om plantan
         List<Plant> plants = plantRepository.findByUserId(id);
         return ResponseEntity.ok(plants);
     }

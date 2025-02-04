@@ -23,7 +23,7 @@ public class PlantController {
     }
 
     @PostMapping
-    public ResponseEntity<Plant> createPlant(@RequestBody Plant plant, User user) {
+    public ResponseEntity<Plant> createPlant(@RequestBody Plant plant) {
         Plant savedPlant = plantRepository.save(plant);
         return ResponseEntity.ok(savedPlant);
     }
