@@ -37,8 +37,6 @@ public class TransactionController {
         User buyerUser = userRepository.findById(transaction.getBuyerUser().getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
 
-        Plant buyerPlant = plantRepository.findById(transaction.getBuyerPlant().getId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
 
         //gjorde såhär för att få min if-sats att funka
         String exchange = "exchange";
@@ -47,6 +45,10 @@ public class TransactionController {
 
         //kollar så min plant går att byta, min andra user har en plant och om status är available
         if (exchange.equals(transaction.getBuyExchange())) {
+
+            Plant buyerPlant = plantRepository.findById(transaction.getBuyerPlant().getId())
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
+
             if (!exchange.equals(plant.getBuyExchange()) || !available.equals(plant.getStatus())) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for exchange");
             }
@@ -69,21 +71,18 @@ public class TransactionController {
             plant.setStatus("sold");
         }
 
-        List<Transaction> userAds = transactionRepository.findByUserId(user.getId());
-
-        //kollar att min user endast kan ha 10 aktiva annonser (måste flytta på denna)
-        if (userAds.size() >= 10){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
-        }
-
         transaction.setUser(user);
         transaction.setPlant(plant);
-        transaction.setBuyerUser(buyerUser);
-        transaction.setBuyerPlant(buyerPlant);
+
+        if (buyerUser != null) {
+            transaction.setBuyerUser(buyerUser);
+        }
+
+        //transaction.setBuyerPlant(buyerPlant);
 
         Transaction savedTransaction = transactionRepository.save(transaction);
         plantRepository.save(plant);
-        plantRepository.save(buyerPlant);
+        //plantRepository.save(buyerPlant);
 
         return ResponseEntity.ok(savedTransaction);
     }

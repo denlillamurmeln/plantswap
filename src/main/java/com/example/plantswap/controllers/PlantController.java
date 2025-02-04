@@ -23,7 +23,14 @@ public class PlantController {
     }
 
     @PostMapping
-    public ResponseEntity<Plant> createPlant(@RequestBody Plant plant) {
+    public ResponseEntity<Plant> createPlant(@RequestBody Plant plant, User user) {
+        List<Plant> userAds = plantRepository.findByUserId(user.getId());
+
+        //kollar att min user endast kan ha 10 annonser
+        if (userAds.size() >= 10){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only own 10 ads");
+        }
+
         Plant savedPlant = plantRepository.save(plant);
         return ResponseEntity.ok(savedPlant);
     }
