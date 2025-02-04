@@ -8,6 +8,8 @@ Om ägaren av plantan har angett "buy" i "buyExchange" och status är "available
 
 Detsamma gäller om ägaren har angett "exchange" i "buyExchange", den andra användaren har en plant och status är "available", så ska man kunna fylla i "exchange" i transaction och kunna byta plantan.
 
+Man ska inte kunna ha en planta som är under 50 SEK eller över 1000 SEK
+
 # Förbättring och begränsningar
 - Skapa en service till nästa gång. Blev inte så strukturerat så jag tappade ofta bort mig i koden.
 - Göra om vissa saker till enum tex. String exchange = "exchange"; i min transactionController.
