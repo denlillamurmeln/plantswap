@@ -34,11 +34,31 @@ public class TransactionController {
         Plant plant = plantRepository.findById(transaction.getPlant().getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
 
+        String exchange = "exchange";
+        String buy = "buy";
+        String available = "available";
+
+        if (exchange.equals(transaction.getBuyExchange())) {
+            if (!exchange.equals(plant.getBuyExchange()) || !available.equals(plant.getStatus())) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for exchange");
+            }
+            plant.setBuyExchange("exchanged");
+            plant.setStatus("not available");
+        }
+
+        if (buy.equals(transaction.getBuyExchange())) {
+            if (!buy.equals(plant.getBuyExchange()) || !available.equals(plant.getStatus())) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for buying");
+            }
+            plant.setBuyExchange("bought");
+            plant.setStatus("not available");
+        }
+
         //List<Transaction> compareUserAndPlant = transactionRepository.findByUserIdAndPlantId(user.getId(), plant.getId());
 
-        if (!plant.getUser().getId().equals(user.getId())) {
+        /*if (!plant.getUser().getId().equals(user.getId())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "You can only create an ad for plants you own");
-        }
+        }*/
 
 //        if (!(transactionRepository.findByBuyExchange("exchange").equals(plantRepository.findByStatus("available")))) {
 //            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No plants are available for exchange");
@@ -55,6 +75,7 @@ public class TransactionController {
         //transaction.setBuyExchange(transaction.getBuyExchange());
 
         Transaction savedTransaction = transactionRepository.save(transaction);
+        plantRepository.save(plant);
         return ResponseEntity.ok(savedTransaction);
     }
 
@@ -106,57 +127,6 @@ public class TransactionController {
         }
 
         return ResponseEntity.ok(transactions);
-    }
-
-    //check för byte av plant
-    @PostMapping("/check")
-    public ResponseEntity<Transaction> checkTransaction(@RequestBody Transaction transaction/*, @PathVariable String available*/) {
-        User user = userRepository.findById(transaction.getUser().getId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
-
-        Plant plant = plantRepository.findById(transaction.getPlant().getId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plant not found"));
-
-//        List<Plant> availablePlants = plantRepository.findByStatus(available);
-//
-//        if (!availablePlants.equals(plant.getStatus())) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for exchange");
-//        }
-
-//        if (!transactionRepository.findByBuyExchange("exchange").equals(plantRepository.findByStatus("available"))) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No plants are available for exchange");
-//        }
-        String exchange = "exchange";
-        String buy = "buy";
-
-        if (exchange.equals(transaction.getBuyExchange())) {
-            if (!exchange.equals(plant.getBuyExchange())) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for exchange");
-            }
-            plant.setBuyExchange("exchanged");
-            plant.setStatus("Not available");
-        }
-
-        if (buy.equals(transaction.getBuyExchange())) {
-            if (!buy.equals(plant.getBuyExchange())) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for buying");
-            }
-            plant.setBuyExchange("bought");
-            plant.setStatus("Not available");
-        }
-
-//        if ("exchange".equals(transaction.getBuyExchange()) && !"available".equals(plant.getStatus())) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The plant is not available for exchange");
-//        }
-
-        transaction.setUser(user);
-        transaction.setPlant(plant);
-//        plant.setStatus("bought");
-
-        Transaction savedTransaction = transactionRepository.save(transaction);
-        plantRepository.save(plant);
-
-        return ResponseEntity.ok(savedTransaction);
     }
 
 }

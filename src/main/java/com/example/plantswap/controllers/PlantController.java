@@ -24,14 +24,7 @@ public class PlantController {
 
     @PostMapping
     public ResponseEntity<Plant> createPlant(@RequestBody Plant plant, User user) {
-//        // om author fylls i - kolla att den finns i db
-//        if(plant.getUser() != null && !userRepository.existsById(plant.getUser().getId())) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found");
-//        }
-        //plant.setUser(user);
-
         Plant savedPlant = plantRepository.save(plant);
-        //return ResponseEntity.status(HttpStatus.CREATED).body(savedPlant);
         return ResponseEntity.ok(savedPlant);
     }
 
